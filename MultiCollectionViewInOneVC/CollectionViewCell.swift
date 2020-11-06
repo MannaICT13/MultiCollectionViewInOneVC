@@ -9,6 +9,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var bgImgCell: UIImageView!
     
     
