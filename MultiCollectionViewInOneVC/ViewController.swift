@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var bgCollectionView: UICollectionView!
     
+    @IBOutlet weak var forgCollectionView: UICollectionView!
     
     var imgDataDic = [String : [UIImage]]()
     
@@ -21,7 +22,8 @@ class ViewController: UIViewController {
         bgCollectionView.isPagingEnabled = true
         
         imgDataDic = [
-            "bgImg": [#imageLiteral(resourceName: "Tangerine"),#imageLiteral(resourceName: "Honeydewmelon"),#imageLiteral(resourceName: "Blueberries"),#imageLiteral(resourceName: "Blackberry"),#imageLiteral(resourceName: "Soursop"),#imageLiteral(resourceName: "Carambola"),#imageLiteral(resourceName: "Gooseberries"),#imageLiteral(resourceName: "Lemon"),#imageLiteral(resourceName: "Mangosteen"),#imageLiteral(resourceName: "DragonFruit"),#imageLiteral(resourceName: "DragonFruit"),#imageLiteral(resourceName: "Avocado"),#imageLiteral(resourceName: "Pomegranate"),#imageLiteral(resourceName: "Sugarapple"),#imageLiteral(resourceName: "Blackberry"),#imageLiteral(resourceName: "Banana"),#imageLiteral(resourceName: "Pineapple"),#imageLiteral(resourceName: "Jujube"),#imageLiteral(resourceName: "Cherries"),#imageLiteral(resourceName: "Papaya")]
+            "bgImg": [#imageLiteral(resourceName: "DragonFruit"),#imageLiteral(resourceName: "DragonFruit"),#imageLiteral(resourceName: "Avocado"),#imageLiteral(resourceName: "Pomegranate"),#imageLiteral(resourceName: "Sugarapple"),#imageLiteral(resourceName: "Blackberry"),#imageLiteral(resourceName: "Banana"),#imageLiteral(resourceName: "Pineapple"),#imageLiteral(resourceName: "Jujube"),#imageLiteral(resourceName: "Cherries"),#imageLiteral(resourceName: "Papaya")],
+            "forgImg": [#imageLiteral(resourceName: "Mandarin"),#imageLiteral(resourceName: "Pineapple"),#imageLiteral(resourceName: "Feijoa"),#imageLiteral(resourceName: "Pear"),#imageLiteral(resourceName: "Papaya"),#imageLiteral(resourceName: "Watermelon"),#imageLiteral(resourceName: "Cherries"),#imageLiteral(resourceName: "Passionfruit")]
         
         
         ]
@@ -36,10 +38,20 @@ extension ViewController : UICollectionViewDataSource,UICollectionViewDelegate{
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let bgImg = imgDataDic["bgImg"] {
-            return bgImg.count
+        if collectionView == bgCollectionView{
+            
+            if let bgImg = imgDataDic["bgImg"] {
+                return bgImg.count
+                
+            }
             
         }
+        if collectionView == forgCollectionView{
+            if let forgImg = imgDataDic["forgImg"]{
+                return forgImg.count
+            }
+        }
+        
         return 0
         
         
@@ -48,9 +60,21 @@ extension ViewController : UICollectionViewDataSource,UICollectionViewDelegate{
         
         let cell : CollectionViewCell = self.bgCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
-        if let bgImg = imgDataDic["bgImg"]{
-            cell.bgImgCell.image = bgImg[indexPath.row]
+        if collectionView == bgCollectionView{
+            
+            if let bgImg = imgDataDic["bgImg"]{
+                      cell.bgImgCell.image = bgImg[indexPath.row]
+                  }
+            
         }
+        if collectionView ==  forgCollectionView{
+            
+            if let forgImg = imgDataDic["forgImg"]{
+                cell.bgImgCell.image = forgImg[indexPath.row]
+            }
+        }
+        
+      
         
         return cell
     }
@@ -61,13 +85,33 @@ extension ViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: bgCollectionView.frame.width, height: bgCollectionView.frame.height)
+        if collectionView ==  bgCollectionView{
+            
+            return CGSize(width: bgCollectionView.frame.width, height: bgCollectionView.frame.height)
+        }
+        if collectionView == forgCollectionView{
+            
+         return CGSize(width: bgCollectionView.bounds.width/3-4, height: bgCollectionView.bounds.height/3-4)
+        }
+        
+        return CGSize(width: 0.0, height: 0.0)
+        
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+         if collectionView == forgCollectionView{
+                   
+                return 4
+               }
+        
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        if collectionView == forgCollectionView{
+                   
+                return 4
+               }
         return 0
     }
 
