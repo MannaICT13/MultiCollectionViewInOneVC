@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		2AFC37E125558E9F00D1733F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC37DF25558E9F00D1733F /* Main.storyboard */; };
 		2AFC37E325558EA400D1733F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC37E225558EA400D1733F /* Assets.xcassets */; };
 		2AFC37E625558EA400D1733F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AFC37E425558EA400D1733F /* LaunchScreen.storyboard */; };
+		2AFC37EE2555912500D1733F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFC37ED2555912500D1733F /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2AFC37E225558EA400D1733F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AFC37E525558EA400D1733F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AFC37E725558EA400D1733F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AFC37ED2555912500D1733F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2AFC37D925558E9F00D1733F /* AppDelegate.swift */,
 				2AFC37DB25558E9F00D1733F /* SceneDelegate.swift */,
 				2AFC37DD25558E9F00D1733F /* ViewController.swift */,
+				2AFC37ED2555912500D1733F /* CollectionViewCell.swift */,
 				2AFC37DF25558E9F00D1733F /* Main.storyboard */,
 				2AFC37E225558EA400D1733F /* Assets.xcassets */,
 				2AFC37E425558EA400D1733F /* LaunchScreen.storyboard */,
@@ -103,7 +106,7 @@
 				};
 			};
 			buildConfigurationList = 2AFC37D125558E9F00D1733F /* Build configuration list for PBXProject "MultiCollectionViewInOneVC" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -140,6 +143,7 @@
 			files = (
 				2AFC37DE25558E9F00D1733F /* ViewController.swift in Sources */,
 				2AFC37DA25558E9F00D1733F /* AppDelegate.swift in Sources */,
+				2AFC37EE2555912500D1733F /* CollectionViewCell.swift in Sources */,
 				2AFC37DC25558E9F00D1733F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
